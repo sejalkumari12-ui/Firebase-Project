@@ -1,17 +1,28 @@
 import  { useState } from "react";
-
+import { getDatabase, ref, set } from "firebase/database"
+import { app } from "../../Firebase";
 
 function AddStudent() {
   const [name,setName] = useState("")
-  const[phone , setPhone] =useState("")
+  const[phone , setPhone] =useState(null)
   const[email , setEmail] = useState("")
-  const [classroom,setClassroom] = useState ("")
+  const [classroom,setClassroom] = useState (null)
+  const [admissionNo,setAdmissionNo] = useState(null)
 
 
  const submitHandler = (e) => {
     e.preventDefault(); 
-  
-    console.log(name,phone,email,classroom);     
+    const db = getDatabase(app)  
+    set(ref(db,"student/"+admissionNo),{
+     studentName:name,
+     studentPhone:phone,
+     studentEmail: email,
+     studentClassroom: classroom,
+     studentAdmissionNo:admissionNo
+
+
+    })
+         
   };
 
 
@@ -22,6 +33,13 @@ function AddStudent() {
         <h2 className="text-2xl font-bold text-center text-gray-800">
           Add Student
         </h2>
+
+        <input
+        onChange={(e) =>setAdmissionNo(e.target.value)}
+          type="number"
+          placeholder="Admission No."
+          className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-400"
+        />
 
         <input
         onChange={(e) =>setName(e.target.value)}

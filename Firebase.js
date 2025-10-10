@@ -1,15 +1,18 @@
+
 import { initializeApp } from "firebase/app";
 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBnne9wHfJxdcXD8kc4TVaOqtzvY4mL3GI",
-  authDomain: "fir-project-38b6a.firebaseapp.com",
-  projectId: "fir-project-38b6a",
-  storageBucket: "fir-project-38b6a.firebasestorage.app",
-  messagingSenderId: "916352868941",
-  appId: "1:916352868941:web:d4cb380ea8d6ffe1243204",
-  measurementId: "G-F59LXEPGM8",
-  databaseURL:"https:/fir-project-38b6a-default-rtdb.firebaseio.com",
+  apiKey: "AIzaSyCF6R6yqm-2db7P3QlcT7GVfZz596tGbmw",
+  authDomain: "dashboard-b4097.firebaseapp.com",
+  projectId: "dashboard-b4097",
+  storageBucket: "dashboard-b4097.firebasestorage.app",
+  messagingSenderId: "81468200797",
+  appId: "1:81468200797:web:fde277dda6340b1ea57ab4",
+  measurementId: "G-2VJSRT6S1M",
+   databaseURL:"https://dashboard-b4097-default-rtdb.firebaseio.com"
+
 };
 
 
- export const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
