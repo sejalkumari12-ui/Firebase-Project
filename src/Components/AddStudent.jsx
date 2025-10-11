@@ -1,6 +1,7 @@
 import  { useState } from "react";
 import { getDatabase, ref, set } from "firebase/database"
 import { app } from "../../Firebase";
+import { useNavigate } from "react-router-dom";
 
 function AddStudent() {
   const [name,setName] = useState("")
@@ -8,6 +9,7 @@ function AddStudent() {
   const[email , setEmail] = useState("")
   const [classroom,setClassroom] = useState (null)
   const [admissionNo,setAdmissionNo] = useState(null)
+  const navigate = useNavigate()
 
 
  const submitHandler = (e) => {
@@ -19,9 +21,14 @@ function AddStudent() {
      studentEmail: email,
      studentClassroom: classroom,
      studentAdmissionNo:admissionNo
-
+    })
+    .then(res =>{
+      navigate("/studentList") //after successful data save, move the user to the Student List page.
 
     })
+     .catch(err=>{
+       console.log("err") //.catch() runs only if something goes wrong (like network issue or Firebase permission error).
+     })
          
   };
 
@@ -72,7 +79,7 @@ function AddStudent() {
         <button
         onClick={submitHandler}
           type="submit"
-          className="w-full bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400  text-white font-semibold py-2 rounded hover:bg-blue-600 transition"
+          className="w-full  bg-gradient-to-r from-indigo-100 to-pink-100  text-black font-semibold py-2 rounded hover:bg-blue-600 transition"
         >
           Submit
         </button>
