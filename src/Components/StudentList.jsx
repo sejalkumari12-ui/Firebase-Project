@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getDatabase, onValue, ref } from "firebase/database";
+import { getDatabase, onValue, ref, remove } from "firebase/database";
 import { app } from "../../Firebase";
 
 function StudentList() {
@@ -14,6 +14,12 @@ function StudentList() {
       setStudentData(data);
     });
   }, []); 
+  const deleteData = (key) =>{
+ const db = getDatabase(app)
+   const studentRef = ref(db, "student/" + key)
+   remove(studentRef)
+
+  }
 
   return (
     <div className="min-h-screen  flex justify-center items-center p-6 ">
@@ -41,7 +47,12 @@ function StudentList() {
                   <p className="text-gray-600 text-sm">
                     ✉️ {value.studentEmail}
                   </p>
+                  
                 )}
+                <button 
+                onClick={()=>{deleteData(key)}}
+                    className="mt-3 w-full bg-red-500 text-white font-semibold py-2 rounded-lg shadow-md hover:bg-red-600 hover:shadow-lg transition-all duration-300"
+                >Remove</button>
               </div>
             ))}
           </div>
