@@ -7,9 +7,9 @@ function Dashboard() {
   
 
   return (
-    <div className="flex flex-col md:flex-row h-screen font-semibold text-gray-800">
+    <div className="flex flex-col md:flex-row h-screen font-semibold text-black bg-gradient-to-r from-indigo-100 to-pink-100">
     
-      <header className="flex justify-between items-center p-4 text-white md:hidden">
+      <header className="flex justify-between items-center p-4 text-black md:hidden">
         <h2 className="text-xl font-bold">Dashboard</h2>
         <button
           onClick={() => setIsOpen(!isOpen)}
