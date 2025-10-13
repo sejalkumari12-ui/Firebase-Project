@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { getDatabase, onValue, ref, remove } from "firebase/database";
 import { app } from "../../Firebase";
+import { useNavigate } from "react-router-dom";
 
 function StudentList() {
   const [studentData, setStudentData] = useState(null);
+  const navigation = useNavigate()
 
   useEffect(() => {
     const db = getDatabase(app);
@@ -49,10 +51,24 @@ function StudentList() {
                   </p>
                   
                 )}
-                <button 
-                onClick={()=>{deleteData(key)}}
-                    className="mt-3 w-full bg-red-500 text-white font-semibold py-2 rounded-lg shadow-md hover:bg-red-600 hover:shadow-lg transition-all duration-300"
-                >Remove</button>
+               <div className="flex flex-col sm:flex-row mt-4 gap-5">
+  {/* Remove Button */}
+  <button
+    onClick={() => deleteData(key)}
+    className="flex-1 bg-red-500 text-white font-semibold py-2 rounded-xl shadow-md hover:bg-red-600 hover:shadow-lg transition-all duration-300"
+  >
+    Remove
+  </button>
+
+  {/* Update Button */}
+  <button
+    onClick={() => navigation("/updateStudent", { state: [key, value] })}
+    className="flex-1 bg-gradient-to-r from-indigo-200 to-pink-200 text-gray-800 font-semibold py-2 rounded-xl shadow-md hover:from-pink-300 hover:to-indigo-300 hover:shadow-lg transition-all duration-300"
+  >
+    Update
+  </button>
+</div>
+
               </div>
             ))}
           </div>

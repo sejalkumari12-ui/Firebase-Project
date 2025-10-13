@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Dashboard from "./Components/Dashboard"
 import AddStudent from "./Components/AddStudent";
 import StudentList from "./Components/StudentList";
+import UpdateStudent from "./Components/UpdateStudent";
 
 
 
@@ -13,7 +14,8 @@ const myRouter = createBrowserRouter([
     children:[
       {path:"",element:<StudentList/>},
       {path:"addStudent",element:<AddStudent />},
-      {path:"studentList" , element:<StudentList />}
+      {path:"studentList" , element:<StudentList />},
+      {path:"updateStudent", element: <UpdateStudent /> }
     ]
   },
 ]);
