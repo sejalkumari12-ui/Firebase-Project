@@ -1,5 +1,5 @@
 import  { useState } from "react";
-import { getDatabase, ref, set } from "firebase/database"
+import { getDatabase, ref,  update } from "firebase/database"
 import { app } from "../../Firebase";
 import { useNavigate,useLocation } from "react-router-dom";
 
@@ -20,21 +20,15 @@ function UpdateStudent() {
  const submitHandler = (e) => {
     e.preventDefault(); 
     const db = getDatabase(app)  
-    set(ref(db,"student/"+admissionNo),{
-     studentName:name,
-     studentPhone:phone,
-     studentEmail: email,
-     studentClassroom: classroom,
-     studentAdmissionNo:admissionNo
+    const  studentRef = ref(db,"student/" +location.state[0])
+    update(studentRef,{studentName:name,studentAdmissionNo:admissionNo,studentEmail:email,studentClassroom:classroom
     })
     .then(res =>{
-      navigate("/studentList") //after successful data save, move the user to the Student List page.
-
+      navigate("/studentList")
     })
-     .catch(err=>{
-       console.log("err") //.catch() runs only if something goes wrong (like network issue or Firebase permission error).
-     })
-         
+    .catch(err =>{
+      console.log(err)
+    })
   };
 
 
