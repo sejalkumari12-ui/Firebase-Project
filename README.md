@@ -1,16 +1,26 @@
-# React + Vite
+# Student Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Student Dashboard** is a web application built with **React** and **Firebase Realtime Database**. It allows users to **Add, Update, Delete, and View student records** in real-time. Every change is instantly reflected in the dashboard thanks to Firebase's real-time features.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **Add Students**: Easily add new student records.  
+- **View Students**: List of all students with their details.  
+- **Update Students**: Edit student information on the fly.  
+- **Delete Students**: Remove student records instantly.  
+- **Real-time Updates**: All CRUD operations update instantly without page refresh.  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** – Frontend library for building UI  
+- **Firebase Realtime Database** – Backend database with real-time syncing  
+- **Tailwind CSS** – Styling the UI  
+- **JavaScript / TypeScript** – Logic and functionality  
+
+---
+
+
